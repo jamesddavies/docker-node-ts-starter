@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  web:
+    build: .
+    ports:
+     - "1234:3000"
+    depends_on: 
+     - mongo
+  mongo:
+    image: mongo
+    restart: always
+    volumes:
+      - datadb:/data/db
+
+volumes:
+  datadb:
